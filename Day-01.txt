@@ -1,0 +1,63 @@
+*****************Day-01***********
+Find the largest element in the array.
+
+https://www.geeksforgeeks.org/problems/largest-element-in-array4009/0?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=largest-element-in-arra
+
+Intuition:
+-->This function aims to find the largest element in an array of integers.
+-->We start by initializing a large variable with the array's first element (arr[0]). 
+This variable will hold the largest element encountered so far.
+-->Then, we iterate through the array using a loop, checking each element:
+	-->If an element is larger than the current value of large, we update large with that 	   element.
+Finally, after the loop has processed all elements, large will hold the largest element, which is then returned.
+
+class Solution {
+  public:
+    int largest(vector<int> &arr) {
+        // code here
+        int large = arr[0];
+       
+        for(int i=0;i<arr.size();i++){
+            if(arr[i] > large){
+                large = arr[i];
+            }
+        }
+        return large;
+    }
+};
+
+Time Complexity (TC):
+	-The function goes through each element of the array exactly once, where n is the 	number of elements in the array. So the time complexity is linear, O(n).
+
+Space Complexity (SC):
+	-The function uses only a few extra variables (large and the loop counter i), which 	take constant space, regardless of the size of the input array. Hence, the space 	complexity is constant, 𝑂(1).
+
+*******************************************************************************************
+2) Second largest element
+https://www.geeksforgeeks.org/problems/second-largest3735/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=second-largest
+
+
+Brute Force Solution
+1) Intuition:
+	-The brute force approach involves sorting the array in ascending order and 		 returning the second last element.
+	-After sorting, the largest element will be the last element of the array, and the 	 second-largest will be just before it.
+
+2)Code:
+class Solution {
+  public:
+    int secondLargest(std::vector<int> &arr) {
+        if (arr.size() < 2) {
+            return -1; // No second largest if array has less than 2 elements
+        }
+        
+        // Sort the array
+        std::sort(arr.begin(), arr.end());
+
+        // Return the second largest element
+        return arr[arr.size() - 2];
+    }
+};
+
+3) Time Complexity (TC): O(n log n): The sorting step takes O(nlogn).
+
+4) Space Complexity (SC): O(1): Sorting is done in-place, so the space complexity is 	constant if we ignore the space required for the input.
